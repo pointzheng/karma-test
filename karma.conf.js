@@ -9,8 +9,17 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
-    plugins: [/*'karma-requirejs', */'karma-babel-preprocessor', /*'karma-react-preprocessor', */'karma-coverage',
-    'karma-chrome-launcher', 'karma-jasmine', 'karma-enzyme-react-16', 'karma-webpack'],
+    plugins: [
+      /*'karma-requirejs', */
+      'karma-babel-preprocessor', 
+      /*'karma-react-preprocessor', */
+      'karma-coverage',
+      'karma-chrome-launcher', 
+      'karma-phantomjs-launcher', 
+      'karma-jasmine', 
+      'karma-enzyme-react-16', 
+      'karma-webpack'
+    ],
 
 
     // frameworks to use
@@ -55,14 +64,13 @@ module.exports = function(config) {
 
 
     coverageReporter: {
-      type: 'html',
-      dir: 'coverage/',
+      // type: 'html',
+      // dir: 'coverage/',
 
-      // type: 'cobertura',
-      // dir: 'unit-coverage/',
-      // file: 'unit-test-result.xml'
+      type: 'cobertura',
+      dir: 'unit-coverage/',
+      file: 'unit-test-result.xml'
     },
-
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
@@ -89,7 +97,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: [/*'PhantomJS', 'Chrome', "ChromeHeadless"*/, "Chrome"],
+    browsers: [/*'PhantomJS'*/ /*, 'Chrome',*/ "ChromeHeadless"],
 
 
     // Continuous Integration mode
