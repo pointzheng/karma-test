@@ -6,8 +6,8 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
     "react-scripts": "4.0.0",
     "web-vitals": "^0.2.4"
   },
@@ -37,11 +37,25 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "enzyme-adapter-react-16": "^1.15.5",
     "jasmine-core": "^3.6.0",
+    "jasmine-enzyme": "^7.1.2",
     "karma": "^5.2.3",
+    "karma-babel-preprocessor": "^8.0.1",
     "karma-chrome-launcher": "^3.1.0",
     "karma-coverage": "^2.0.3",
+    "karma-enzyme-react-16": "^0.0.1",
     "karma-jasmine": "^4.0.1",
-    "karma-phantomjs-launcher": "^1.0.4"
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-react-jsx-preprocessor": "^0.1.1",
+    "karma-react-preprocessor": "^0.0.4",
+    "karma-requirejs": "^1.1.0",
+    "karma-webpack": "^4.0.2",
+    "path": "^0.12.7",
+    "react-tools": "^0.13.3",
+    "requirejs": "^2.3.6"
   }
 }

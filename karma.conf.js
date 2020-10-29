@@ -1,43 +1,66 @@
 // Karma configuration
 // Generated on Mon Oct 26 2020 10:52:06 GMT+0800 (China Standard Time)
 
+const path = require("path");
+
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
+    plugins: [/*'karma-requirejs', */'karma-babel-preprocessor', /*'karma-react-preprocessor', */'karma-coverage',
+    'karma-chrome-launcher', 'karma-jasmine', 'karma-enzyme-react-16', 'karma-webpack'],
+
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', /*'requirejs', */'enzyme-react-16'],
 
 
     // list of files / patterns to load in the browser
     files: [
+      // 'test/*.js',
       'test/*.js',
-      'src/util.js'
+      // 'src/util.js'
     ],
 
 
     // list of files / patterns to exclude
     exclude: [
+      path.resolve(__dirname, 'node_modules')
     ],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/*.js': ['coverage']
+      // 'src/*.js': ['coverage'],
+      // 'test/*.js': ['babel', 'react', 'coverage'],
+      'test/*.js': ['webpack', 'coverage'/*'babel', 'react'*/]
     },
+
+    // babelPreprocessor: {
+    //   options: {
+    //     presets: ['@babel/preset-env', '@babel/preset-react'],
+    //     sourceMap: 'inline'
+    //   },
+    //   // filename: function (file) {
+    //   //   return file.originalPath.replace(/\.js$/, '.es5.js');
+    //   // },
+    //   // sourceFileName: function (file) {
+    //   //   return file.originalPath;
+    //   // }
+    // },
 
 
     coverageReporter: {
-      // type: 'html',
-      // dir: 'coverage/',
-      type: 'cobertura',
-      dir: 'unit-coverage/',
-      file: 'unit-test-result.xml'
+      type: 'html',
+      dir: 'coverage/',
+
+      // type: 'cobertura',
+      // dir: 'unit-coverage/',
+      // file: 'unit-test-result.xml'
     },
 
 
@@ -66,7 +89,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: [/*'PhantomJS', 'Chrome', */"ChromeHeadless"],
+    browsers: [/*'PhantomJS', 'Chrome', "ChromeHeadless"*/, "Chrome"],
 
 
     // Continuous Integration mode
@@ -75,6 +98,27 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+
+
+    webpack: { 
+      devtool: 'inline-source-map', //just do inline source maps instead of the default
+      module: {
+        rules: [
+          {
+            test: /\.(js|jsx)$/,
+            use: [{
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env', '@babel/preset-react']
+              }
+            }],
+            exclude: path.resolve(__dirname, 'node_modules')
+          }
+        ],
+        // mode: "development"
+      },
+      mode: "development"
+    },
   })
 }
