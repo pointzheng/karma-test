@@ -10,7 +10,11 @@ describe('MyComponent', () => {
   })
 
   it('testFooBar', () => {
-    const wrapper = mount(<MyCompForTest foo="3" />)
-    expect(wrapper.find('#foo').length).toBe(1);
+    const wrapperFoo = mount(<MyCompForTest foo="3" />)
+    expect(wrapperFoo.find('#foo').length).toBe(1);
+    const wrapperBar = mount(<MyCompForTest bar="3" />)
+    expect(wrapperBar.find('#bar').length).toBe(1);
+    // const wrapperNotFooOrBar = mount(<MyCompForTest />)
+    // expect(wrapperNotFooOrBar.find('#foo').length).toBe(0);
   })
 })
