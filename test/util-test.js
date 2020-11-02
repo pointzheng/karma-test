@@ -1,29 +1,25 @@
 // import jasmineEnzyme from 'jasmine-enzyme';
 import React from 'react'
+// import { shallow } from 'enzyme';
 // import {mount, shallow} from 'enzyme'
-
-describe('test', () => {
-  beforeEach(() => {
-    
-  });
-
-  it('reverse word', function() {
-    // tests
-    console.log("in test start")
-    const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
-    expect(true).toBe(true);
-    // expect(wrapper.find('#not')).not.toBeChecked();
-    console.log("in test end")
-  });
-});
+// import { describe } from 'jasmine';
+// import { mount, shallow } from 'enzyme';
+// import { render } from 'enzyme';
+// import { shallow } from 'enzyme';
 
 function Fixture() {
   return (
     <div>
-      <input id="checked" defaultChecked />
-      <input id="not" defaultChecked={false} />
-      <input id="tertiary" defaultChecked />
+       <input id="disabled" disabled className="testClz" />
+        <input id="not"/>
     </div>
   );
 }
 
+describe('MyComponent', () => {
+  it('renders', () => {
+    expect(true).toBe(true)
+    const wrapper = mount(<Fixture />)
+    expect(wrapper.find('#disabled').hasClass("testClz")).toBe(true);
+  })
+})
