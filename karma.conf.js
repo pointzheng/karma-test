@@ -17,7 +17,7 @@ module.exports = function(config) {
       'karma-chrome-launcher', 
       'karma-phantomjs-launcher', 
       'karma-jasmine', 
-      'karma-enzyme-react-16', 
+      'karma-enzyme-react-16', // this plugin required webpack config: https://github.com/GetAmbassador/karma-enzyme
       'karma-webpack'
     ],
 
@@ -44,11 +44,11 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      // 'src/*.js': ['coverage'],
-      // 'test/*.js': ['babel', 'react', 'coverage'],
-      'test/*.js': ['webpack', 'coverage'/*'babel', 'react'*/]
+      'test/*.js': ['webpack'/*'babel', 'react'*/],
+      'components/**/*.js': ['coverage'] // all files that SHOULD be coverd. Here the 'test' folder is excluded!
     },
 
+    // ***If no webpack, the bable config can be used but not corrected configed yet!
     // babelPreprocessor: {
     //   options: {
     //     presets: ['@babel/preset-env', '@babel/preset-react'],
