@@ -64,12 +64,12 @@ module.exports = function(config) {
 
 
     coverageReporter: {
-      // type: 'html',
-      // dir: 'coverage/',
+      type: 'html',
+      dir: 'coverage/',
 
-      type: 'cobertura',
-      dir: 'unit-coverage/',
-      file: 'unit-test-result.xml'
+      // type: 'cobertura',
+      // dir: 'unit-coverage/',
+      // file: 'unit-test-result.xml'
     },
 
     // test results reporter to use
@@ -118,13 +118,13 @@ module.exports = function(config) {
             use: [{
               loader: 'babel-loader',
               options: {
-                presets: ['@babel/preset-env', '@babel/preset-react']
+                presets: ['@babel/preset-env', '@babel/preset-react'],
+                plugins: ['istanbul'] 
               }
             }],
             exclude: path.resolve(__dirname, 'node_modules')
           }
         ],
-        // mode: "development"
       },
       mode: "development"
     },
