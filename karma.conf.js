@@ -64,12 +64,12 @@ module.exports = function(config) {
 
 
     coverageReporter: {
-      type: 'html',
-      dir: 'coverage/',
+      // type: 'html',
+      // dir: 'coverage/',
 
-      // type: 'cobertura',
-      // dir: 'unit-coverage/',
-      // file: 'unit-test-result.xml'
+      type: 'cobertura',
+      dir: 'unit-coverage/',
+      file: 'unit-test-result.xml'
     },
 
     // test results reporter to use
