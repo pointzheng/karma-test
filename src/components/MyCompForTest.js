@@ -10,14 +10,14 @@ export default class MyCompForTest extends React.Component {
   }
 
   render() {
-    const {foo, bar} = this.props;
+    const {foo, bar, children} = this.props;
 
     if (foo) {
-      return <div id="foo">foo</div>
+      return <div id="foo">{children}</div>
     }
     if (bar) {
-      return <div id="bar">bar</div>
+      return <div id="bar">{children}</div>
     }
-    return <div id="noFooBar">Not foo and not bar</div>
+    return <div id="noFooBar">{children}</div>
   }
 }
