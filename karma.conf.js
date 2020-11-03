@@ -10,13 +10,13 @@ module.exports = function(config) {
     basePath: '',
 
     plugins: [
-      /*'karma-requirejs', */
       'karma-babel-preprocessor', 
       /*'karma-react-preprocessor', */
       'karma-coverage',
       'karma-chrome-launcher', 
       'karma-phantomjs-launcher', 
       'karma-jasmine', 
+      // 'karma-mocha', 
       'karma-enzyme-react-16', // this plugin required webpack config: https://github.com/GetAmbassador/karma-enzyme
       'karma-webpack'
     ],
@@ -24,14 +24,16 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', /*'requirejs', */'enzyme-react-16'],
+    frameworks: [
+      /*'mocha',*/ 
+      'jasmine', 
+      'enzyme-react-16'
+    ],
 
 
     // list of files / patterns to load in the browser
     files: [
-      // 'test/*.js',
       'src/test/*.js',
-      // 'src/util.js'
     ],
 
 
