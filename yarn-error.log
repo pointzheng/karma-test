@@ -1,5 +1,5 @@
 Arguments: 
-  /home/zhengyy/.nvm/versions/node/v10.22.0/bin/node /usr/share/yarn/bin/yarn.js add karam-coverage --save-dev
+  /home/zhengyy/.nvm/versions/node/v10.22.0/bin/node /usr/share/yarn/bin/yarn.js install
 
 PATH: 
   /home/zhengyy/bin:/home/zhengyy/.local/bin:/home/zhengyy/.nvm/versions/node/v10.22.0/bin:/usr/local/java/jdk1.8.0_231/bin:/usr/local/node/node-v12.13.0/bin:/home/zhengyy/bin:/home/zhengyy/.local/bin:/usr/local/java/jdk1.8.0_231/bin:/usr/local/node/node-v12.13.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/zhengyy/.yarn/bin:/home/zhengyy/.yarn/bin
@@ -14,17 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.npmjs.org/karam-coverage: Not found
-      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:66947:18)
-      at Request.self.callback (/usr/share/yarn/lib/cli.js:140665:22)
-      at Request.emit (events.js:198:13)
-      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:141637:10)
-      at Request.emit (events.js:198:13)
-      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:141559:12)
-      at Object.onceWrapper (events.js:286:20)
-      at IncomingMessage.emit (events.js:203:15)
-      at endReadableNT (_stream_readable.js:1145:12)
-      at process._tickCallback (internal/process/next_tick.js:63:19)
+  Error: ENOENT: no such file or directory, copyfile '/home/zhengyy/.cache/yarn/v6/npm-supports-color-5.5.0-e2e69a44ac8772f78a1ec0b35b689df6530efc8f-integrity/node_modules/supports-color/browser.js' -> '/home/zhengyy/clsp-stripes-dev/unit-test/karma-test/node_modules/@babel/highlight/node_modules/supports-color/browser.js'
 
 npm manifest: 
   {
@@ -35,8 +25,8 @@ npm manifest:
       "@testing-library/jest-dom": "^5.11.4",
       "@testing-library/react": "^11.1.0",
       "@testing-library/user-event": "^12.1.10",
-      "react": "^17.0.1",
-      "react-dom": "^17.0.1",
+      "react": "^16.3.1",
+      "react-dom": "^16.3.1",
       "react-scripts": "4.0.0",
       "web-vitals": "^0.2.4"
     },
@@ -44,7 +34,8 @@ npm manifest:
       "start": "react-scripts start",
       "build": "react-scripts build",
       "test": "react-scripts test",
-      "eject": "react-scripts eject"
+      "eject": "react-scripts eject",
+      "karma": "npx karma start"
     },
     "eslintConfig": {
       "extends": [
@@ -65,10 +56,28 @@ npm manifest:
       ]
     },
     "devDependencies": {
+      "@babel/core": "^7.12.3",
+      "@babel/preset-env": "^7.12.1",
+      "@babel/preset-react": "^7.12.1",
+      "enzyme": "^3.11.0",
+      "enzyme-adapter-react-16": "^1.15.5",
+      "jasmine": "^3.6.3",
       "jasmine-core": "^3.6.0",
+      "jasmine-enzyme": "^7.1.2",
       "karma": "^5.2.3",
+      "karma-babel-preprocessor": "^8.0.1",
+      "karma-chrome-launcher": "^3.1.0",
+      "karma-coverage": "^2.0.3",
+      "karma-enzyme-react-16": "^0.0.1",
       "karma-jasmine": "^4.0.1",
-      "karma-phantomjs-launcher": "^1.0.4"
+      "karma-phantomjs-launcher": "^1.0.4",
+      "karma-react-jsx-preprocessor": "^0.1.1",
+      "karma-react-preprocessor": "^0.0.4",
+      "karma-requirejs": "^1.1.0",
+      "karma-webpack": "^4.0.2",
+      "path": "^0.12.7",
+      "react-tools": "^0.13.3",
+      "requirejs": "^2.3.6"
     }
   }
 

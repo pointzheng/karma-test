@@ -6,7 +6,7 @@ export default class MyCompForTest extends React.Component {
   }
 
   componentDidMount() {
-    console.log("component has mounted....");
+    console.log("MyCompForTest has mounted....");
   }
 
   render() {

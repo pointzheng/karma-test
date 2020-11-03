@@ -30,7 +30,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // 'test/*.js',
-      'test/*.js',
+      'src/test/*.js',
       // 'src/util.js'
     ],
 
@@ -44,8 +44,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/*.js': ['webpack'/*'babel', 'react'*/],
-      'components/**/*.js': ['coverage'] // all files that SHOULD be coverd. Here the 'test' folder is excluded!
+      'src/test/*.js': ['webpack'/*'babel', 'react'*/],
+      'src/components/**/*.js': ['coverage'] // all files that SHOULD be coverd. Here the 'test' folder is excluded!
     },
 
     // ***If no webpack, the bable config can be used but not corrected configed yet!
@@ -64,12 +64,12 @@ module.exports = function(config) {
 
 
     coverageReporter: {
-      // type: 'html',
-      // dir: 'coverage/',
+      type: 'html',
+      dir: 'coverage/',
 
-      type: 'cobertura',
-      dir: 'unit-coverage/',
-      file: 'unit-test-result.xml'
+      // type: 'cobertura',
+      // dir: 'unit-coverage/',
+      // file: 'unit-test-result.xml'
     },
 
     // test results reporter to use
