@@ -12,15 +12,15 @@ describe('MyComponent', () => {
     expect(wrapper.find('#not').hasClass("testClz")).toBe(false);
   })
 
-  it('testFooBar', () => {
+  it('test element search', () => {
     const wrapperFoo = mount(<MyCompForTest foo="3" />)
     expect(wrapperFoo.find('#foo').length).toBe(1);
     const wrapperBar = mount(<MyCompForTest bar="3" />)
     expect(wrapperBar.find('#bar').length).toBe(1);
   })
 
-  it('test button click', () => {
-    const onButtonClick = jasmine.createSpy('whatAmI');
+  it('test spy', () => {
+    const onButtonClick = jasmine.createSpy('whatIsSpy');
     const wrapper = mount(
       <MyCompForTest foo="3">
         <button onClick={onButtonClick}>test</button>
@@ -28,5 +28,12 @@ describe('MyComponent', () => {
     )
     wrapper.find('button').simulate('click');
     expect(onButtonClick).toHaveBeenCalled();
+
+    spyOn(MyCompForTest.prototype, 'clickTest');
+    const btWrapper = mount(<MyCompForTest foo="3" />)
+    expect(btWrapper.find("a").text()).toBe('testLink')
+    btWrapper.find('a').simulate('click');
+    expect(MyCompForTest.prototype.clickTest).toHaveBeenCalled();
+    expect(MyCompForTest.prototype.clickTest).toHaveBeenCalledTimes(1);
   })
 })
