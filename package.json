@@ -16,7 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "karma": "npx karma start"
+    "karma": "npx karma start",
+    "mocha": "mocha src/api/test.js -t 20000"
   },
   "eslintConfig": {
     "extends": [
@@ -61,6 +62,7 @@
     "mocha": "^8.2.1",
     "path": "^0.12.7",
     "react-tools": "^0.13.3",
-    "requirejs": "^2.3.6"
+    "requirejs": "^2.3.6",
+    "supertest": "^6.0.0"
   }
 }
