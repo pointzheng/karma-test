@@ -7,6 +7,7 @@ describe('MyComponent', () => {
   console.log("jasmine test...");
   
   it('mount demo', () => {
+    expect(true).toBe(false)
     const wrapper = mount(<Fixture />)
     expect(wrapper.find('#disabled').hasClass("testClz")).toBe(true);
     expect(wrapper.find('#not').hasClass("testClz")).toBe(false);
